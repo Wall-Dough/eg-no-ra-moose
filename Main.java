@@ -2,6 +2,8 @@
 public class Main {
 
     public static void main(String[] args) {
-    	Peg peg = new Peg(true);
+    	Board board = new Board().build();
+
+        board.draw();
     }
 }

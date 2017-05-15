@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.*;
 
 public class Peg {
 	
@@ -27,16 +27,12 @@ public class Peg {
 
     private boolean status;
 	
-    private List<Jump> jumps;
+    private ArrayList<Jump> jumps;
 
     public Peg(boolean status) {
     	this.status = status;
-    	this.jumps = new List<>();
+    	this.jumps = new ArrayList<Jump>();
     }
-    
-    public Peg duplicate() {
-	Peg newPeg = new Peg(this.status);
-    }	
     
     public boolean isFilled() { return this.status; }
 
@@ -44,11 +40,11 @@ public class Peg {
 
 
     public void addJump(Peg toGoTo, Peg toJump) {
-	this.jumps.add(new Peg(toGoTo, toJump));
+	this.jumps.add(new Jump(toGoTo, toJump));
     }
 
-    public List<Jump> getJumps() {
-	List<Jump> canJump = new List<>();
+    public ArrayList<Jump> getJumps() {
+	ArrayList<Jump> canJump = new ArrayList<>();
 
 	for (int i = 0; i < this.jumps.size(); i++) {
 	    if (this.jumps.get(i).canJump()) {
